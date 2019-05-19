@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+  xmlns:android="http://schemas.android.com/apk/res/android"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  android:orientation="vertical"
+  android:padding="@dimen/padding_medium"
+  >
+
+  <TextView
+    android:id="@+id/tv_data_from_main"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:fontFamily="sans-serif-black"
+    android:textColor="@color/black"
+    />
+
+  <!--<EditText-->
+    <!--android:id="@+id/entered_data_1"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:inputType="text"-->
+    <!--tools:ignore="Autofill,LabelFor"-->
+    <!--/>-->
+
+  <!--<EditText-->
+    <!--android:id="@+id/entered_data_2"-->
+    <!--android:layout_width="300dp"-->
+    <!--android:layout_height="wrap_content"-->
+    <!--android:inputType="text"-->
+    <!--tools:ignore="Autofill,LabelFor"-->
+    <!--/>-->
+
+  <android.support.v7.widget.AppCompatButton
+    android:id="@+id/btn_finish"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:text="@string/btn_back_text"
+    style="@style/ButtonStyle"
+    />
+</LinearLayout>
