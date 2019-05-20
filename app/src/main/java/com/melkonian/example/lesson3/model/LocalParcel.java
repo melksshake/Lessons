@@ -3,22 +3,22 @@ package com.melkonian.example.lesson3.model;
 import java.io.Serializable;
 
 public class LocalParcel implements Serializable {
-  private String text;
-  private int number;
+  private String text1;
+  private String text2;
 
-  public String getText() {
-    return text;
+  public String getText1() {
+    return text1;
   }
 
-  public void setText(String text) {
-    this.text = text;
+  public void setText1(String text1) {
+    this.text1 = text1;
   }
 
-  public int getNumber() {
-    return number;
+  public String getText2() {
+    return text2;
   }
 
-  public void setNumber(int number) {
-    this.number = number;
+  public void setText2(String text2) {
+    this.text2 = text2;
   }
 }
