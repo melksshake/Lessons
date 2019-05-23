@@ -3,20 +3,9 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
   android:orientation="vertical"
   >
-
-  <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--android:layout_marginBottom="@dimen/margin_medium"-->
-    <!--android:layout_marginTop="@dimen/margin_large"-->
-    <!--android:fontFamily="sans-serif"-->
-    <!--android:text="@string/label_title"-->
-    <!--android:textColor="@color/black"-->
-    <!--android:textSize="@dimen/text_size_medium"-->
-    <!--/>-->
 
   <LinearLayout
     android:layout_width="match_parent"
@@ -32,10 +21,8 @@
       android:layout_width="wrap_content"
       android:layout_height="match_parent"
       android:layout_weight="4"
-      android:fontFamily="sans-serif-black"
-      android:gravity="center"
-      android:padding="@dimen/padding_small"
-      android:textColor="@color/black"
+      android:text="New text"
+      style="@style/LargeText"
       />
 
     <android.support.v7.widget.AppCompatButton
@@ -43,10 +30,17 @@
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:layout_weight="1"
+      android:background="@drawable/btn_custom_states"
       android:text="@string/btn_dummy_text"
-      style="@style/ButtonStyle"
+      style="@style/StandardButtonStyle"
       />
   </LinearLayout>
+
+  <ImageView
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    app:srcCompat="@drawable/ic_monkey_facing_left"
+    />
 
   <android.support.v7.widget.AppCompatButton
     android:id="@+id/btn_next_activity"
@@ -54,16 +48,16 @@
     android:layout_height="wrap_content"
     android:layout_gravity="end|bottom"
     android:text="@string/btn_go_next"
-    style="@style/ButtonStyle"
+    style="@style/StandardButtonStyle.Dark"
     />
 
   <TextView
     android:id="@+id/tv_data_from_second_1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
     android:fontFamily="sans-serif-black"
     android:gravity="center"
-    android:layout_marginTop="50dp"
     android:padding="@dimen/padding_small"
     android:textColor="@color/black"
     />
@@ -72,9 +66,9 @@
     android:id="@+id/tv_data_from_second_2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
     android:fontFamily="sans-serif-black"
     android:gravity="center"
-    android:layout_marginTop="100dp"
     android:padding="@dimen/padding_small"
     android:textColor="@color/black"
     />

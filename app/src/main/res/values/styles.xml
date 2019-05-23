@@ -6,9 +6,34 @@
     <item name="colorAccent">@color/colorAccent</item>
   </style>
 
-  <style name="ButtonStyle" parent="Widget.AppCompat.Button.Colored">
+  <style name="LightTheme" parent="@android:style/Theme.Light"/>
+
+  <style name="BlackTheme" parent="@android:style/Theme.Black"/>
+
+  <style name="StandardButtonStyle" parent="Widget.AppCompat.Button.Colored">
     <item name="colorButtonNormal">@color/blue</item>
     <item name="colorControlHighlight">@color/blue_light</item>
     <item name="android:textAllCaps">false</item>
+    <item name="android:padding">16dp</item>
+  </style>
+
+  <style name="StandardButtonStyle.Dark">
+    <item name="android:background">@color/black</item>
+  </style>
+
+
+  <style name="StandardText" >
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">match_parent</item>
+    <item name="android:fontFamily">sans-serif-black</item>
+    <item name="android:gravity">center</item>
+    <item name="android:padding">@dimen/padding_small</item>
+    <item name="android:textColor">@color/black</item>
+    <item name="android:textSize">@dimen/text_size_medium</item>
+  </style>
+
+
+  <style name="LargeText" parent="StandardText">
+    <item name="android:textSize">@dimen/text_size_large</item>
   </style>
 </resources>

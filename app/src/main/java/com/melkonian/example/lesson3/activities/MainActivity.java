@@ -5,20 +5,21 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatButton;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lesson3.model.LocalParcel;
-import com.melkonian.example.lesson3.utils.LifecycleStateSaver;
 
 import static com.melkonian.example.lesson3.activities.SecondActivity.FROM_SECOND_ACTIVITY;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
   public static final String CLICKS_COUNT = "CLICKS_COUNT";
   public static final int REQUEST_CODE_SECOND_A = 100;
+  private final String TAG = MainActivity.class.getName();
 
-  //private int counterValue = 0;
+  private int counterValue = 0;
 
   private TextView counterValueView;
   private TextView fromSecondActivity1;
@@ -26,21 +27,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   private AppCompatButton clickButton;
   private AppCompatButton nextActivityButton;
 
-  private final LifecycleStateSaver saver = LifecycleStateSaver.getInstance();
-
-  @Override
-  protected void onCreate(Bundle savedInstanceState) {
+  @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    //boolean isDark = true;
+    //SharedPreferences;
+    //setTheme(isDark ? android.R.style.Theme_Black : android.R.style.Theme);
     setContentView(R.layout.activity_main);
 
     Toast.makeText(this, checkInstanceState(savedInstanceState), Toast.LENGTH_SHORT).show();
 
     initViews();
 
-    //counterValueView.setText(String.valueOf(counterValue));
-    counterValueView.setText(String.valueOf(saver.getCounter()));
-
-    //clickButton.setOnClickListener(v -> onButtonCLicked());
+    counterValueView.setText(String.valueOf(counterValue));
     clickButton.setOnClickListener(this);
     nextActivityButton.setOnClickListener(this);
   }
@@ -49,13 +47,13 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     switch (v.getId()) {
       case R.id.btn_next_activity:
         Intent nextActivity = new Intent(this, SecondActivity.class);
-        nextActivity.putExtra(CLICKS_COUNT, saver.getCounter());
-        //startActivity(nextActivity);
+        nextActivity.putExtra(CLICKS_COUNT, counterValue);
         startActivityForResult(nextActivity, REQUEST_CODE_SECOND_A);
         break;
 
       case R.id.btn_dummy:
-        onButtonCLicked();
+        ++counterValue;
+        counterValueView.setText(String.valueOf(counterValue));
         break;
     }
   }
@@ -74,6 +72,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
   }
 
+  @Override protected void onSaveInstanceState(Bundle outState) {
+    super.onSaveInstanceState(outState);
+    outState.putInt(CLICKS_COUNT, counterValue);
+  }
+
+  @Override protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    super.onRestoreInstanceState(savedInstanceState);
+    counterValue = savedInstanceState.getInt(CLICKS_COUNT);
+    counterValueView.setText(String.valueOf(counterValue));
+  }
+
   private void initViews() {
     counterValueView = findViewById(R.id.tv_clicks_count);
     clickButton = findViewById(R.id.btn_dummy);
@@ -90,28 +99,5 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     }
   }
 
-  private void onButtonCLicked() {
-    //++counterValue;
-    //counterValueView.setText(String.valueOf(counterValue));
 
-    saver.incrementCounter();
-    counterValueView.setText(String.valueOf(saver.getCounter()));
-  }
-
-
-
-
-
-
-
-  //@Override protected void onSaveInstanceState(Bundle outState) {
-  //  super.onSaveInstanceState(outState);
-  //  outState.putInt(CLICKS_COUNT, counterValue);
-  //}
-  //
-  //@Override protected void onRestoreInstanceState(Bundle savedInstanceState) {
-  //  super.onRestoreInstanceState(savedInstanceState);
-  //  counterValue = savedInstanceState.getInt(CLICKS_COUNT);
-  //  counterValueView.setText(String.valueOf(counterValue));
-  //}
 }
