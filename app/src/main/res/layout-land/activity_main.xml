@@ -3,19 +3,24 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
+  android:baselineAligned="false"
   android:orientation="horizontal"
   >
 
   <fragment
     android:id="@+id/choose_city"
     android:name="com.melkonian.example.lessons.fragments.CitiesListFragment"
-    android:layout_width="match_parent"
+    android:layout_width="0dp"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     />
 
   <FrameLayout
     android:id="@+id/placeholder_coat_of_arms"
     android:layout_width="0dp"
     android:layout_height="match_parent"
-    />
+    android:layout_weight="1"
+    android:background="?android:attr/detailsElementBackground"
+    >
+  </FrameLayout>
 </LinearLayout>

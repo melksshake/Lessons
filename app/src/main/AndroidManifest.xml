@@ -14,14 +14,14 @@
     tools:ignore="AllowBackup,GoogleAppIndexingWarning"
     >
 
-    <activity android:name=".activities.MainActivity">
+    <activity android:name="com.melkonian.example.lessons.activities.MainActivity">
       <intent-filter>
         <action android:name="android.intent.action.MAIN"/>
         <category android:name="android.intent.category.LAUNCHER"/>
       </intent-filter>
     </activity>
 
-    <activity android:name=".activities.SecondActivity"/>
+    <activity android:name="com.melkonian.example.lessons.activities.CoatOfArmsActivity"/>
 
   </application>
 </manifest>
