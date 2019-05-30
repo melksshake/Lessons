@@ -21,7 +21,7 @@
       </intent-filter>
     </activity>
 
-    <activity android:name=".activities.SecondActivity"/>
+    <activity android:name=".activities.SecondFragment"/>
 
   </application>
 </manifest>
