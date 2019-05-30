@@ -41,7 +41,7 @@ public class CoatOfArmsFragment extends Fragment {
     if (getView() == null) {
       return;
     }
-    
+
     coatOfArms = getView().findViewById(R.id.iv_coat_of_arms_view);
     cityNameView = getView().findViewById(R.id.tv_chosen_city);
 

@@ -6,6 +6,13 @@
   android:orientation="horizontal"
   >
 
+   <!--TODO необязательный элемент-->
+  <!--<FrameLayout-->
+    <!--android:id="@+id/placeholder_coat_of_arms"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--&gt;-->
+
   <fragment
     android:id="@+id/choose_city"
     android:name="com.melkonian.example.lessons.fragments.CitiesListFragment"
@@ -13,9 +20,5 @@
     android:layout_height="match_parent"
     />
 
-  <FrameLayout
-    android:id="@+id/placeholder_coat_of_arms"
-    android:layout_width="0dp"
-    android:layout_height="match_parent"
-    />
+  <!--</FrameLayout>-->
 </LinearLayout>

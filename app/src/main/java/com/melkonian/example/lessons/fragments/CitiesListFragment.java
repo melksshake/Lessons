@@ -16,8 +16,6 @@ import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lessons.activities.CoatOfArmsActivity;
 import com.melkonian.example.lessons.model.CityIndex;
 
-import static android.content.res.Configuration.ORIENTATION_LANDSCAPE;
-
 public class CitiesListFragment extends ListFragment {
   private final String CURRENT_CITY_INDEX = "CURRENT_CITY_INDEX";
 
@@ -49,7 +47,6 @@ public class CitiesListFragment extends ListFragment {
 
     detailsFrame = activityContext.findViewById(R.id.placeholder_coat_of_arms);
     isDualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
-    //isDualPane = detailsFrame != null && getResources().getConfiguration().orientation == ORIENTATION_LANDSCAPE;
 
     if (savedInstanceState != null) {
       cityIndexParcel = (CityIndex) savedInstanceState.getSerializable(CURRENT_CITY_INDEX);
@@ -92,7 +89,13 @@ public class CitiesListFragment extends ListFragment {
           .getSupportFragmentManager()
           .findFragmentById(R.id.placeholder_coat_of_arms);
 
-      if (coatOfArmsFragment == null || coatOfArmsFragment.getParcel().getIndex() != index) {
+      if (coatOfArmsFragment.getParcel() == null) {
+        return;
+      }
+
+      int indexFromAttributes = coatOfArmsFragment.getParcel().getIndex();
+
+      if (coatOfArmsFragment == null || indexFromAttributes != index) {
         coatOfArmsFragment = CoatOfArmsFragment.createInstance(parcel);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -103,7 +106,9 @@ public class CitiesListFragment extends ListFragment {
             .commit();
       }
     } else {
-      startActivity(CoatOfArmsActivity.start(getContext(), parcel));
+      if (getContext() != null) {
+        startActivity(CoatOfArmsActivity.start(getContext(), parcel));
+      }
     }
   }
 }

@@ -6,7 +6,6 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
-import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lessons.fragments.CoatOfArmsFragment;
 import com.melkonian.example.lessons.model.CityIndex;
 
@@ -37,7 +36,9 @@ public class CoatOfArmsActivity extends AppCompatActivity {
       FragmentManager fragmentManager = getSupportFragmentManager();
       fragmentManager
           .beginTransaction()
-          .add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
+          .add(android.R.id.content, coatOfArmsFragment)
+          //TODO
+          //.add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
           .commit();
     }
   }
