@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
 
   @Override
   public void startSecondFragment(@NonNull String shape) {
+    secondFragment.setShape(shape);
     FragmentManager fragmentManager = getSupportFragmentManager();
     fragmentManager
         .beginTransaction()
@@ -35,6 +36,5 @@ public class MainActivity extends AppCompatActivity implements FragmentNavigator
         .addToBackStack("")
         .commit();
 
-    secondFragment.setShape(shape);
   }
 }

@@ -4,7 +4,7 @@
   android:layout_width="wrap_content"
   android:layout_height="wrap_content"
   android:layout_gravity="center"
-  android:columnCount="3"
+  android:columnCount="4"
   >
 
   <android.support.v7.widget.AppCompatButton
@@ -67,6 +67,8 @@
     android:id="@+id/button32"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_column="1"
+    android:layout_columnSpan="2"
     android:text="9"
     />
 

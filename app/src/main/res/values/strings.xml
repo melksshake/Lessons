@@ -4,6 +4,6 @@
   <!-- MainActivity -->
   <string name="star">Звезда</string>
   <string name="ball">Шар</string>
-  <string name="forward">Показать во весь экран</string>
+  <string name="forward">Далее</string>
   <string name="second_fragment">Второй фрагмент</string>
 </resources>

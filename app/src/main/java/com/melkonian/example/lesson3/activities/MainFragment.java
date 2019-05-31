@@ -10,41 +10,46 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import com.melkonian.example.lesson3.FragmentNavigator;
 import com.melkonian.example.lesson3.R;
 
 public class MainFragment extends Fragment {
   private String shape;
 
+  private ImageView imageView;
+  private RadioButton radioBall;
+  private RadioButton radioStar;
+  private AppCompatButton button;
+
   @Override
   public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
     View fragmentView = inflater.inflate(R.layout.fragment_main, container, false);
 
+    final MainActivity parentActivity = (MainActivity) getActivity();
+    if (parentActivity == null) {
+      return null;
+    }
+
     shape = getString(R.string.ball);
 
-    final ImageView imageView = fragmentView.findViewById(R.id.imageView);
-    RadioButton radioBall = fragmentView.findViewById(R.id.radioBall);
+    imageView = fragmentView.findViewById(R.id.imageView);
+    radioBall = fragmentView.findViewById(R.id.radioBall);
+    radioStar = fragmentView.findViewById(R.id.radioStar);
+    button = fragmentView.findViewById(R.id.button);
 
     radioBall.setOnClickListener(v -> {
       imageView.setImageResource(R.drawable.ic_ball);
       shape = getString(R.string.ball);
     });
-
-    RadioButton radioStar = fragmentView.findViewById(R.id.radioStar);
     radioStar.setOnClickListener(v -> {
       imageView.setImageResource(R.drawable.ic_star);
       shape = getString(R.string.star);
     });
-
-    AppCompatButton button = fragmentView.findViewById(R.id.button);
-    final Activity parentActivity = getActivity();
-    if (parentActivity == null) {
-      return null;
-    }
-
     button.setOnClickListener(v -> {
-      //FragmentNavigator mainNavigator = (FragmentNavigator) parentActivity;
+      //FragmentNavigator mainNavigator = parentActivity;
       //mainNavigator.startSecondFragment(shape);
-      ((MainActivity) getActivity()).startSecondFragment(shape);
+
+      parentActivity.startSecondFragment(shape);
     });
 
     return fragmentView;

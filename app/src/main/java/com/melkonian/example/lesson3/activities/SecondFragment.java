@@ -20,7 +20,7 @@ public class SecondFragment extends Fragment {
     return fragmentView;
   }
 
-  public void setShape(String shape) {
+  public void setShape(@NonNull String shape) {
     this.shape = shape;
   }
 }

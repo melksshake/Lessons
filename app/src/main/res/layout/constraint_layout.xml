@@ -2,6 +2,7 @@
 <android.support.constraint.ConstraintLayout
   xmlns:android="http://schemas.android.com/apk/res/android"
   xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
   android:padding="8dp"
@@ -93,7 +94,32 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:text="0"
-    app:layout_constraintLeft_toLeftOf="@+id/button48"
-    app:layout_constraintTop_toBottomOf="@+id/button48"
+    app:layout_constraintLeft_toLeftOf="@id/button48"
+    app:layout_constraintTop_toBottomOf="@id/button48"
     />
+
+  <RadioGroup
+    android:layout_width="200dp"
+    android:layout_height="100dp"
+    android:orientation="horizontal"
+    app:layout_constraintLeft_toLeftOf="@id/button50"
+    app:layout_constraintTop_toBottomOf="@id/button50"
+    >
+
+    <RadioButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+    <RadioButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+    <RadioButton
+      android:layout_width="wrap_content"
+      android:layout_height="wrap_content"
+      />
+
+  </RadioGroup>
 </android.support.constraint.ConstraintLayout>
