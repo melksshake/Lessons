@@ -1,117 +1,124 @@
 package com.melkonian.example.lesson3.activities;
 
-import android.content.Intent;
+import android.app.Activity;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
+import android.support.v7.widget.DividerItemDecoration;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 import com.melkonian.example.lesson3.R;
-import com.melkonian.example.lesson3.model.LocalParcel;
-import com.melkonian.example.lesson3.utils.LifecycleStateSaver;
+import com.melkonian.example.lesson3.adapter.CitiesAdapter;
+import com.melkonian.example.lesson3.adapter.OnRecyclerViewClickListener;
 
-import static com.melkonian.example.lesson3.activities.SecondActivity.FROM_SECOND_ACTIVITY;
-
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-  public static final String CLICKS_COUNT = "CLICKS_COUNT";
-  public static final int REQUEST_CODE_SECOND_A = 100;
-
-  //private int counterValue = 0;
-
-  private TextView counterValueView;
-  private TextView fromSecondActivity1;
-  private TextView fromSecondActivity2;
-  private AppCompatButton clickButton;
-  private AppCompatButton nextActivityButton;
-
-  private final LifecycleStateSaver saver = LifecycleStateSaver.getInstance();
+public class MainActivity extends AppCompatActivity implements /*View.OnClickListener, */OnRecyclerViewClickListener {
+  private String[] citiesList = { "Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Самара" };
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_main);
 
-    Toast.makeText(this, checkInstanceState(savedInstanceState), Toast.LENGTH_SHORT).show();
+    // 1
+    //manuallyAddCities();
 
-    initViews();
+    // 2
+    //manuallyAddCitiesInflater();
 
-    //counterValueView.setText(String.valueOf(counterValue));
-    counterValueView.setText(String.valueOf(saver.getCounter()));
+    // 3
+    //manageListView();
 
-    //clickButton.setOnClickListener(v -> onButtonCLicked());
-    clickButton.setOnClickListener(this);
-    nextActivityButton.setOnClickListener(this);
+    // 4
+    manageRecyclerView();
   }
 
-  @Override public void onClick(View v) {
-    switch (v.getId()) {
-      case R.id.btn_next_activity:
-        Intent nextActivity = new Intent(this, SecondActivity.class);
-        nextActivity.putExtra(CLICKS_COUNT, saver.getCounter());
-        //startActivity(nextActivity);
-        startActivityForResult(nextActivity, REQUEST_CODE_SECOND_A);
-        break;
+  /*private void manuallyAddCities() {
+    LinearLayout list = findViewById(R.id.layout);
 
-      case R.id.btn_dummy:
-        onButtonCLicked();
-        break;
+    for (String city : citiesList) {
+      TextView cityView = new TextView(this);
+      cityView.setText(city);
+      cityView.setTextSize(42);
+      cityView.setOnClickListener(v -> showMessage(v, null));
+      list.addView(cityView);
     }
-  }
+  }*/
 
-  @Override protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-    super.onActivityResult(requestCode, resultCode, data);
-    if (resultCode == RESULT_OK && requestCode == REQUEST_CODE_SECOND_A) {
-      if (data != null && data.getExtras() != null) {
-        LocalParcel receivedData = (LocalParcel) data.getExtras().get(FROM_SECOND_ACTIVITY);
+  /*private void manuallyAddCitiesInflater() {
+    LinearLayout list = findViewById(R.id.layout);
+    LayoutInflater ltInflater = getLayoutInflater();
 
-        if (receivedData != null) {
-          fromSecondActivity1.setText(receivedData.getText1());
-          fromSecondActivity2.setText(receivedData.getText2());
-        }
-      }
+    for (String city : citiesList) {
+      View item = ltInflater.inflate(R.layout.city_item, list, false);
+      TextView cityView = item.findViewById(R.id.textView);
+      cityView.setText(city);
+      cityView.setOnClickListener(v -> showMessage(v, null));
+      list.addView(item);
     }
+  }*/
+
+ /* private void manageListView() {
+    ListView listView = findViewById(R.id.listCities);
+    ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, citiesList);
+    listView.setAdapter(adapter);
+    final Activity activity = this;
+    listView.setOnItemClickListener((parent, view, position, id) -> showMessage(view, null));
+    //listView.setOnItemLongClickListener((parent, view, position, id) -> {
+    //  Toast.makeText(activity, "onLongClick", Toast.LENGTH_SHORT).show();
+    //  return false;
+    //});
+  }*/
+
+  private void manageRecyclerView() {
+    RecyclerView recyclerView = findViewById(R.id.recycler_view);
+
+    recyclerView.setHasFixedSize(true);
+    recyclerView.addItemDecoration(new DividerItemDecoration(this, DividerItemDecoration.VERTICAL));
+    LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+    recyclerView.setLayoutManager(layoutManager);
+
+    //CitiesAdapter adapter = new CitiesAdapter(citiesList);
+
+    //CitiesAdapter adapter = new CitiesAdapter(citiesList, view -> showMessage(view, null));
+    //CitiesAdapter adapter = new CitiesAdapter(citiesList, new View.OnClickListener() {
+    //  @Override public void onClick(View v) {
+    //    showMessage(v, null);
+    //  }
+    //});
+    // или
+    CitiesAdapter adapter = new CitiesAdapter(citiesList, this);
+
+    recyclerView.setAdapter(adapter);
+
+    // или
+    //adapter.SetOnItemClickListener(new CitiesAdapter.OnItemClickListener() {
+    //  @Override
+    //  public void onItemClick(View view, int position) {
+    //    showMessage(view);
+    //  }
+    //});
   }
 
-  private void initViews() {
-    counterValueView = findViewById(R.id.tv_clicks_count);
-    clickButton = findViewById(R.id.btn_dummy);
-    nextActivityButton = findViewById(R.id.btn_next_activity);
-    fromSecondActivity1 = findViewById(R.id.tv_data_from_second_1);
-    fromSecondActivity2 = findViewById(R.id.tv_data_from_second_2);
+  @Override public void onItemClick(View view, int position) {
+    showMessage(view, String.valueOf(position));
   }
+ /* @Override public void onClick(View v) {
+    showMessage(v, null);
+  }*/
 
-  private String checkInstanceState(Bundle savedInstanceState) {
-    if (savedInstanceState == null) {
-      return getString(R.string.instance_state_first);
-    } else {
-      return getString(R.string.instance_state_not_first);
-    }
+  private void showMessage(@NonNull View view, @Nullable String position) {
+    String message;
+
+    message = position == null
+        ? String.format("Выбран город - %s", ((TextView) view).getText())
+        : String.format("Выбран город - %s (номер %s)", ((TextView) view).getText(), position);
+
+    Toast.makeText(this, message, Toast.LENGTH_SHORT).show();
   }
-
-  private void onButtonCLicked() {
-    //++counterValue;
-    //counterValueView.setText(String.valueOf(counterValue));
-
-    saver.incrementCounter();
-    counterValueView.setText(String.valueOf(saver.getCounter()));
-  }
-
-
-
-
-
-
-
-  //@Override protected void onSaveInstanceState(Bundle outState) {
-  //  super.onSaveInstanceState(outState);
-  //  outState.putInt(CLICKS_COUNT, counterValue);
-  //}
-  //
-  //@Override protected void onRestoreInstanceState(Bundle savedInstanceState) {
-  //  super.onRestoreInstanceState(savedInstanceState);
-  //  counterValue = savedInstanceState.getInt(CLICKS_COUNT);
-  //  counterValueView.setText(String.valueOf(counterValue));
-  //}
 }
