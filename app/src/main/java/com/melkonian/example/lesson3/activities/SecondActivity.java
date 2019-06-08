@@ -1,63 +1,94 @@
 package com.melkonian.example.lesson3.activities;
 
-import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.TextInputEditText;
+import android.support.design.widget.TextInputLayout;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 import com.melkonian.example.lesson3.R;
-import com.melkonian.example.lesson3.model.LocalParcel;
-
-import static com.melkonian.example.lesson3.activities.MainActivity.CLICKS_COUNT;
+import java.util.regex.Pattern;
 
 public class SecondActivity extends AppCompatActivity {
-  public static String FROM_SECOND_ACTIVITY = "FROM_SECOND_ACTIVITY";
+  private TextInputEditText tietLogin;
+  private TextInputEditText tietPassword;
+  private TextInputLayout tilLogin;
+  private Button btnOk;
 
-  private TextView dataFromMainView;
-  private AppCompatButton finishButton;
-  private EditText etEnteredStringOne;
-  private EditText etEnteredStringTwo;
+  private String regexPattern = "^[A-Z][a-z][0-9]{2,}";
+  private Pattern checkLogin = Pattern.compile(regexPattern);
 
-  private int receivedValue = 0;
+  private Pattern checkPassword = Pattern.compile("[0-9]{6,}");
+
+  public static void startActivity(@NonNull Context context) {
+    Intent intent = new Intent(context, SecondActivity.class);
+    context.startActivity(intent);
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     setContentView(R.layout.activity_second);
-    Toast.makeText(getApplicationContext(), "Second - onCreate()", Toast.LENGTH_SHORT).show();
 
-    initViews();
+    tietLogin = findViewById(R.id.tiet_login);
+    tilLogin = findViewById(R.id.til_login);
+    tietPassword = findViewById(R.id.teit_password);
+    btnOk = findViewById(R.id.btn_ok);
 
-    if (getIntent() != null && getIntent().getExtras() != null) {
-      receivedValue = getIntent().getIntExtra(CLICKS_COUNT, -1);
+    //tietLogin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+    //  @Override public void onFocusChange(View v, boolean hasFocus) {
+    //    if (hasFocus) return;
+    //    //TextView tv = (TextView) v;
+    //    String error = "Это не имя!";
+    //    if (checkLogin.matcher(tietLogin.getText()).matches()) {
+    //      tilLogin.setError(null);
+    //    } else {
+    //      tilLogin.setError(error);
+    //    }
+    //
+    //    //validate(tv, checkLogin, "Это не имя!");
+    //  }
+    //});
+
+    tietLogin.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+      @Override
+      public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) return;
+        TextView tv = (TextView) v;
+        validate(tv, checkLogin, "Это не имя!");
+      }
+    });
+
+    tietPassword.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+      @Override
+      public void onFocusChange(View v, boolean hasFocus) {
+        if (hasFocus) return;
+        TextView tv = (TextView) v;
+        validate(tv, checkPassword, "Пароль слишком простой!");
+      }
+    });
+
+    btnOk.setOnClickListener(v -> ThirdActivity.startActivity(this));
+  }
+
+  private void validate(TextView tv, Pattern check, String message) {
+    String value = tv.getText().toString();
+    if (check.matcher(value).matches()) {
+      hideError(tv);
+    } else {
+      showError(tv, message);
     }
-
-    dataFromMainView.setText(String.valueOf(receivedValue));
-
-    //finishButton.setOnClickListener(v -> finish());
-    finishButton.setOnClickListener(v -> onSaveAndFinishClicked());
   }
 
-  private void initViews() {
-    dataFromMainView = findViewById(R.id.tv_data_from_main);
-    finishButton = findViewById(R.id.btn_finish);
-
-    etEnteredStringOne = findViewById(R.id.entered_data_1);
-    etEnteredStringTwo = findViewById(R.id.entered_data_2);
+  private void showError(TextView view, String message) {
+    view.setError(message);
   }
 
-  private void onSaveAndFinishClicked() {
-    LocalParcel parcel = new LocalParcel();
-    parcel.setText1(etEnteredStringOne.getText().toString());
-    parcel.setText2(etEnteredStringTwo.getText().toString());
-
-    Intent dataToMainActivity = new Intent(this, MainActivity.class);
-    dataToMainActivity.putExtra(FROM_SECOND_ACTIVITY, parcel);
-    setResult(Activity.RESULT_OK, dataToMainActivity);
-    finish();
+  private void hideError(TextView view) {
+    view.setError(null);
   }
 }

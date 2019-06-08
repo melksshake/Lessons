@@ -2,12 +2,17 @@
   <string name="app_name">Lesson3</string>
 
   <!-- MainActivity -->
-  <string name="label_title">Демонстрация жизненного цикла Activity</string>
-  <string name="btn_dummy_text">Нажми на меня</string>
-  <string name="btn_go_next">Открыть вторую Activity</string>
-  <string name="instance_state_first">Первый запуск!</string>
-  <string name="instance_state_not_first">Повторный запуск!</string>
 
   <!-- SecondActivity -->
-  <string name="btn_back_text">Назад</string>
+  <string name="login_name">Ваше имя</string>
+  <string name="password">Пароль</string>
+  <string name="ok">Ok</string>
+
+  <!-- Third activity -->
+  <string name="third_activity">Third activity</string>
+
+  <!-- Menu -->
+  <string name="action_settings1">Пункт меню 1</string>
+  <string name="action_settings2">Пункт меню 2</string>
+  <string name="action_settings3">Пункт меню 3</string>
 </resources>
