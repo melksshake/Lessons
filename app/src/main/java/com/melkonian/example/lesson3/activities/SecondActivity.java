@@ -3,12 +3,11 @@ package com.melkonian.example.lesson3.activities;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.AppCompatButton;
-import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.AppCompatButton;
 import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lesson3.model.LocalParcel;
 
