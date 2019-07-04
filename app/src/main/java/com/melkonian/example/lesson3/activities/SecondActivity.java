@@ -1,19 +1,21 @@
 package com.melkonian.example.lesson3.activities;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lesson3.model.LocalParcel;
 
-import static com.melkonian.example.lesson3.activities.MainActivity.CLICKS_COUNT;
-
 public class SecondActivity extends AppCompatActivity {
+  public static final String CLICKS_COUNT = "CLICKS_COUNT";
   public static String FROM_SECOND_ACTIVITY = "FROM_SECOND_ACTIVITY";
 
   private TextView dataFromMainView;
@@ -21,7 +23,14 @@ public class SecondActivity extends AppCompatActivity {
   private EditText etEnteredStringOne;
   private EditText etEnteredStringTwo;
 
-  private int receivedValue = 0;
+  private String receivedValue = null;
+
+  public static void start(@NonNull Context context, int clicks) {
+    Intent startIntent = new Intent(context, SecondActivity.class);
+    startIntent.putExtra(CLICKS_COUNT, clicks);
+    context.startActivity(startIntent);
+    //startActivityForResult(startIntent, REQUEST_CODE_SECOND_A);
+  }
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -32,10 +41,10 @@ public class SecondActivity extends AppCompatActivity {
     initViews();
 
     if (getIntent() != null && getIntent().getExtras() != null) {
-      receivedValue = getIntent().getIntExtra(CLICKS_COUNT, -1);
+      receivedValue = String.valueOf(getIntent().getIntExtra(CLICKS_COUNT, -1));
     }
 
-    dataFromMainView.setText(String.valueOf(receivedValue));
+    dataFromMainView.setText(receivedValue);
 
     //finishButton.setOnClickListener(v -> finish());
     finishButton.setOnClickListener(v -> onSaveAndFinishClicked());
@@ -56,7 +65,7 @@ public class SecondActivity extends AppCompatActivity {
 
     Intent dataToMainActivity = new Intent(this, MainActivity.class);
     dataToMainActivity.putExtra(FROM_SECOND_ACTIVITY, parcel);
-    setResult(Activity.RESULT_OK, dataToMainActivity);
+    setResult(Activity.RESULT_CANCELED, dataToMainActivity);
     finish();
   }
 }

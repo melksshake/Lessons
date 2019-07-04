@@ -6,18 +6,6 @@
   android:orientation="vertical"
   >
 
-  <!--<TextView-->
-    <!--android:layout_width="wrap_content"-->
-    <!--android:layout_height="wrap_content"-->
-    <!--android:layout_gravity="center_horizontal"-->
-    <!--android:layout_marginBottom="@dimen/margin_medium"-->
-    <!--android:layout_marginTop="@dimen/margin_large"-->
-    <!--android:fontFamily="sans-serif"-->
-    <!--android:text="@string/label_title"-->
-    <!--android:textColor="@color/black"-->
-    <!--android:textSize="@dimen/text_size_medium"-->
-    <!--/>-->
-
   <LinearLayout
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -38,7 +26,7 @@
       android:textColor="@color/black"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <androidx.appcompat.widget.AppCompatButton
       android:id="@+id/btn_dummy"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -48,7 +36,7 @@
       />
   </LinearLayout>
 
-  <android.support.v7.widget.AppCompatButton
+  <androidx.appcompat.widget.AppCompatButton
     android:id="@+id/btn_next_activity"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
@@ -61,9 +49,9 @@
     android:id="@+id/tv_data_from_second_1"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="50dp"
     android:fontFamily="sans-serif-black"
     android:gravity="center"
-    android:layout_marginTop="50dp"
     android:padding="@dimen/padding_small"
     android:textColor="@color/black"
     />
@@ -72,9 +60,9 @@
     android:id="@+id/tv_data_from_second_2"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
+    android:layout_marginTop="100dp"
     android:fontFamily="sans-serif-black"
     android:gravity="center"
-    android:layout_marginTop="100dp"
     android:padding="@dimen/padding_small"
     android:textColor="@color/black"
     />
