@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
   @Override protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     //boolean isDark = true;
-    //SharedPreferences;
     //setTheme(isDark ? android.R.style.Theme_Black : android.R.style.Theme);
     setContentView(R.layout.activity_main);
 
