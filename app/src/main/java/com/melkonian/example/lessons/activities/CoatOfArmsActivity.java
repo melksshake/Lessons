@@ -3,9 +3,9 @@ package com.melkonian.example.lessons.activities;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentManager;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentManager;
 import com.melkonian.example.lessons.fragments.CoatOfArmsFragment;
 import com.melkonian.example.lessons.model.CityIndex;
 
