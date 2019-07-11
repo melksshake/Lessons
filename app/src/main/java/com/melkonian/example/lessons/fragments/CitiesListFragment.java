@@ -1,5 +1,6 @@
 package com.melkonian.example.lessons.fragments;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -39,11 +40,7 @@ public class CitiesListFragment extends ListFragment {
       return;
     }
 
-    ArrayAdapter adapter = ArrayAdapter.createFromResource(
-        activityContext,
-        R.array.cities_list,
-        android.R.layout.simple_list_item_activated_1);
-    setListAdapter(adapter);
+    createAndSetAdapter(activityContext);
 
     detailsFrame = activityContext.findViewById(R.id.placeholder_coat_of_arms);
     isDualPane = detailsFrame != null && detailsFrame.getVisibility() == View.VISIBLE;
@@ -73,18 +70,16 @@ public class CitiesListFragment extends ListFragment {
     showCoatOfArms(cityIndexParcel);
   }
 
-  private void showCoatOfArms(CityIndex parcel) {
+  private void showCoatOfArms(@NonNull CityIndex parcel) {
     if (getActivity() == null) {
       return;
     }
-    if (parcel == null) {
-      return;
-    }
 
-    int index = parcel.getIndex();
+    int clickedIndex = parcel.getIndex();
 
     if (isDualPane) {
-      getListView().setItemChecked(index, true);
+      getListView().setItemChecked(clickedIndex, true);
+
       CoatOfArmsFragment coatOfArmsFragment = (CoatOfArmsFragment) getActivity()
           .getSupportFragmentManager()
           .findFragmentById(R.id.placeholder_coat_of_arms);
@@ -95,7 +90,7 @@ public class CitiesListFragment extends ListFragment {
 
       int indexFromAttributes = coatOfArmsFragment.getParcel().getIndex();
 
-      if (indexFromAttributes != index) {
+      if (indexFromAttributes != clickedIndex) {
         coatOfArmsFragment = CoatOfArmsFragment.createInstance(parcel);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
@@ -105,10 +100,19 @@ public class CitiesListFragment extends ListFragment {
             .setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
             .commit();
       }
+
     } else {
       if (getContext() != null) {
-        startActivity(CoatOfArmsActivity.start(getContext(), parcel));
+        CoatOfArmsActivity.start(getContext(), parcel);
       }
     }
+  }
+
+  private void createAndSetAdapter(@NonNull Context context) {
+    ArrayAdapter adapter = ArrayAdapter.createFromResource(
+        context,
+        R.array.cities_list,
+        android.R.layout.simple_list_item_activated_1);
+    setListAdapter(adapter);
   }
 }

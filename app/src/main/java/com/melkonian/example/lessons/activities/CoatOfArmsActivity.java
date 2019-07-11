@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
+import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lessons.fragments.CoatOfArmsFragment;
 import com.melkonian.example.lessons.model.CityIndex;
 
@@ -14,10 +15,10 @@ import static com.melkonian.example.lessons.fragments.CoatOfArmsFragment.PARCEL;
 
 public class CoatOfArmsActivity extends AppCompatActivity {
 
-  public static Intent start(@NonNull Context context, @NonNull CityIndex parcel) {
+  public static void start(@NonNull Context context, @NonNull CityIndex parcel) {
     Intent intent = new Intent(context, CoatOfArmsActivity.class);
     intent.putExtra(PARCEL, parcel);
-    return intent;
+    context.startActivity(intent);
   }
 
   @Override
@@ -36,9 +37,7 @@ public class CoatOfArmsActivity extends AppCompatActivity {
       FragmentManager fragmentManager = getSupportFragmentManager();
       fragmentManager
           .beginTransaction()
-          .add(android.R.id.content, coatOfArmsFragment)
-          //TODO
-          //.add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
+          .add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
           .commit();
     }
   }

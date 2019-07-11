@@ -3,15 +3,8 @@
   xmlns:android="http://schemas.android.com/apk/res/android"
   android:layout_width="match_parent"
   android:layout_height="match_parent"
-  android:orientation="horizontal"
+  android:orientation="vertical"
   >
-
-   <!--TODO необязательный элемент-->
-  <!--<FrameLayout-->
-    <!--android:id="@+id/placeholder_coat_of_arms"-->
-    <!--android:layout_width="match_parent"-->
-    <!--android:layout_height="match_parent"-->
-    <!--&gt;-->
 
   <fragment
     android:id="@+id/choose_city"
@@ -19,6 +12,4 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     />
-
-  <!--</FrameLayout>-->
 </LinearLayout>
