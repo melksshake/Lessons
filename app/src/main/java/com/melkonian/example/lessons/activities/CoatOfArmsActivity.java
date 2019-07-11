@@ -37,7 +37,9 @@ public class CoatOfArmsActivity extends AppCompatActivity {
       FragmentManager fragmentManager = getSupportFragmentManager();
       fragmentManager
           .beginTransaction()
-          .add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
+          .add(android.R.id.content, coatOfArmsFragment)
+          //TODO
+          //.add(R.id.placeholder_coat_of_arms, coatOfArmsFragment)
           .commit();
     }
   }

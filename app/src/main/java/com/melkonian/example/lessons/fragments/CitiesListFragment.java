@@ -84,13 +84,16 @@ public class CitiesListFragment extends ListFragment {
           .getSupportFragmentManager()
           .findFragmentById(R.id.placeholder_coat_of_arms);
 
-      if (coatOfArmsFragment == null || coatOfArmsFragment.getParcel() == null) {
-        return;
-      }
+      // TODO
+      //if (coatOfArmsFragment == null || coatOfArmsFragment.getParcel() == null) {
+      //  return;
+      //}
+      //
+      //int indexFromAttributes = coatOfArmsFragment.getParcel().getIndex();
 
-      int indexFromAttributes = coatOfArmsFragment.getParcel().getIndex();
-
-      if (indexFromAttributes != clickedIndex) {
+      // TODO
+      if (coatOfArmsFragment == null ||
+          ( coatOfArmsFragment.getParcel() != null && coatOfArmsFragment.getParcel().getIndex() != clickedIndex)) {
         coatOfArmsFragment = CoatOfArmsFragment.createInstance(parcel);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
