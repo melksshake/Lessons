@@ -6,7 +6,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
-import com.melkonian.example.lesson3.R;
 import com.melkonian.example.lessons.fragments.CoatOfArmsFragment;
 import com.melkonian.example.lessons.model.CityIndex;
 

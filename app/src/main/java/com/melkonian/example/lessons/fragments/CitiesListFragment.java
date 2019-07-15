@@ -93,7 +93,7 @@ public class CitiesListFragment extends ListFragment {
 
       // TODO
       if (coatOfArmsFragment == null ||
-          ( coatOfArmsFragment.getParcel() != null && coatOfArmsFragment.getParcel().getIndex() != clickedIndex)) {
+          (coatOfArmsFragment.getParcel() != null && coatOfArmsFragment.getParcel().getIndex() != clickedIndex)) {
         coatOfArmsFragment = CoatOfArmsFragment.createInstance(parcel);
 
         FragmentManager fragmentManager = getActivity().getSupportFragmentManager();
