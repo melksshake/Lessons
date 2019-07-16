@@ -1,16 +1,14 @@
 package com.melkonian.example.lesson3.activities;
 
-import android.app.Activity;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
-import android.support.v7.widget.AppCompatButton;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RadioButton;
-import com.melkonian.example.lesson3.FragmentNavigator;
+import androidx.annotation.NonNull;
+import androidx.appcompat.widget.AppCompatButton;
+import androidx.fragment.app.Fragment;
 import com.melkonian.example.lesson3.R;
 
 public class MainFragment extends Fragment {
@@ -46,9 +44,6 @@ public class MainFragment extends Fragment {
       shape = getString(R.string.star);
     });
     button.setOnClickListener(v -> {
-      //FragmentNavigator mainNavigator = parentActivity;
-      //mainNavigator.startSecondFragment(shape);
-
       parentActivity.startSecondFragment(shape);
     });
 

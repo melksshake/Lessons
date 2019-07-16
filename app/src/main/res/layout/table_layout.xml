@@ -5,7 +5,6 @@
   android:layout_height="match_parent"
   android:layout_columnSpan="10"
   android:gravity="center"
-  android:orientation="horizontal"
   >
 
   <TableRow
@@ -14,21 +13,21 @@
     android:gravity="center"
     >
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button23"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="1"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button22"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="2"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button21"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -42,21 +41,21 @@
     android:gravity="center"
     >
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button26"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="4"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button25"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="5"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button24"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -71,21 +70,21 @@
     android:orientation="horizontal"
     >
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button29"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="7"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button28"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
       android:text="8"
       />
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button27"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"
@@ -96,10 +95,10 @@
   <TableRow
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
+    android:gravity="end"
     >
 
-    <android.support.v7.widget.AppCompatButton
+    <Button
       android:id="@+id/button30"
       android:layout_width="wrap_content"
       android:layout_height="wrap_content"

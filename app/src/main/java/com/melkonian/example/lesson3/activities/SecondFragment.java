@@ -1,12 +1,12 @@
 package com.melkonian.example.lesson3.activities;
 
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.Fragment;
 import com.melkonian.example.lesson3.R;
 
 public class SecondFragment extends Fragment {
