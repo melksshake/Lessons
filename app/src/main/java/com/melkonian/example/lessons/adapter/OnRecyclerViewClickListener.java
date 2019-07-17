@@ -1,4 +1,4 @@
-package com.melkonian.example.lesson3.adapter;
+package com.melkonian.example.lessons.adapter;
 
 import android.view.View;
 

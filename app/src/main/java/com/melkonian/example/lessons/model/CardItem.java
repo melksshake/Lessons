@@ -1,4 +1,4 @@
-package com.melkonian.example.lesson3.model;
+package com.melkonian.example.lessons.model;
 
 public class CardItem {
   private String description;
