@@ -15,7 +15,7 @@ import com.melkonian.example.lessons.activities.MainActivity;
 import com.melkonian.example.lessons.adapter.CitiesAdapter;
 import com.melkonian.example.lessons.adapter.OnRecyclerViewClickListener;
 
-public class RecyclerViewFragment extends Fragment implements OnRecyclerViewClickListener {
+public class RecyclerViewFragment extends Fragment implements OnRecyclerViewClickListener, View.OnClickListener {
   private String[] citiesList = { "Москва", "Санкт-Петербург", "Новосибирск", "Екатеринбург", "Самара" };
 
   @Nullable @Override public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -27,12 +27,22 @@ public class RecyclerViewFragment extends Fragment implements OnRecyclerViewClic
     manageRecyclerView(view);
   }
 
+  // For OnRecyclerViewClickListener
   @Override public void onItemClick(View view, int position) {
     if (getActivity() == null) {
       return;
     }
 
     ((MainActivity) getActivity()).showMessage(String.valueOf(position));
+  }
+
+  // For View.OnClickListener
+  @Override public void onClick(View view) {
+    if (getActivity() == null) {
+      return;
+    }
+
+    ((MainActivity) getActivity()).showMessage("Basic clicker");
   }
 
   private void manageRecyclerView(@NonNull View view) {
@@ -44,6 +54,7 @@ public class RecyclerViewFragment extends Fragment implements OnRecyclerViewClic
 
     recyclerView.setHasFixedSize(true);
     recyclerView.addItemDecoration(new DividerItemDecoration(getContext(), DividerItemDecoration.VERTICAL));
+
     LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
     recyclerView.setLayoutManager(layoutManager);
 

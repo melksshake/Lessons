@@ -1,5 +1,6 @@
 package com.melkonian.example.lessons.fragments;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -22,8 +23,8 @@ public class InflaterFragment extends Fragment {
   @Override public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
     super.onViewCreated(view, savedInstanceState);
 
-    manuallyAddCities(view);
-    //manuallyAddCitiesInflater(view);
+    //manuallyAddCities(view);
+    manuallyAddCitiesInflater(view);
   }
 
   private void manuallyAddCities(@NonNull View view) {
@@ -37,6 +38,9 @@ public class InflaterFragment extends Fragment {
       TextView cityView = new TextView(getContext());
       cityView.setText(city);
       cityView.setTextSize(42);
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        cityView.setTextAppearance(R.style.CardView);
+      }
       cityView.setOnClickListener(v -> ((MainActivity) getActivity()).showMessage("Not a position"));
       list.addView(cityView);
     }
@@ -52,10 +56,13 @@ public class InflaterFragment extends Fragment {
 
     for (int i = 0; i < citiesList.length; i++) {
       View item = ltInflater.inflate(R.layout.city_item, list, false);
-      TextView cityView = item.findViewById(R.id.textView);
+
+      TextView cityView = item.findViewById(R.id.text_view);
       cityView.setText(citiesList[i]);
+
       String index = String.valueOf(i);
-      cityView.setOnClickListener(v -> ((MainActivity) getActivity()).showMessage(index));
+      cityView.setOnClickListener(v -> ((MainActivity) getActivity()).showMessage(index + 1));
+
       list.addView(item);
     }
   }

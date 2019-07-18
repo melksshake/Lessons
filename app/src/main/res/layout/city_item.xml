@@ -12,33 +12,19 @@
 
   <!-- TODO ellipsize does not work with wrap_content -->
   <!-- TODO view width must be some constant size -->
-    <TextView
-      android:id="@+id/text_view"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:layout_gravity="center_vertical"
-      android:background="?attr/selectableItemBackgroundBorderless"
-      android:ellipsize="end"
-      android:maxLength="5"
-      android:maxLines="1"
-      android:padding="8dp"
-      android:singleLine="true"
-      android:text="ItemItemItemItemItemItemItemItem"
-      android:textColor="@color/colorAccent"
-      android:textSize="20sp"
-      />
-
-    <!--<android.support.v7.widget.SwitchCompat-->
-      <!--android:layout_width="wrap_content"-->
-      <!--android:layout_height="wrap_content"-->
-      <!--android:layout_gravity="center"-->
-      <!--/>-->
-
-    <!--<ImageView-->
-      <!--android:layout_width="wrap_content"-->
-      <!--android:layout_height="wrap_content"-->
-      <!--android:layout_gravity="end|center_vertical"-->
-      <!--android:src="@mipmap/ic_launcher_round"-->
-      <!--/>-->
-  <!--</FrameLayout>-->
+  <TextView
+    android:id="@+id/text_view"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_vertical"
+    android:background="?attr/selectableItemBackgroundBorderless"
+    android:ellipsize="end"
+    android:maxLength="5"
+    android:maxLines="1"
+    android:padding="8dp"
+    android:singleLine="true"
+    android:text="ItemItemItemItemItemItemItemItem"
+    android:textColor="@color/colorAccent"
+    android:textSize="20sp"
+    />
 </androidx.cardview.widget.CardView>
