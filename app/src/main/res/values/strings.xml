@@ -1,16 +1,32 @@
 <resources>
   <string name="app_name">Lessons</string>
 
-  <!-- SecondActivity -->
-  <string name="login_name">Ваше имя</string>
-  <string name="password">Пароль</string>
-  <string name="ok">OK</string>
+  <!-- MainActivity -->
+  <string name="main_activity_title">Main activity</string>
+  <string name="btn_go_next">Go next</string>
 
-  <!-- Third activity -->
-  <string name="third_activity">Third activity</string>
+  <!-- SecondActivity -->
+  <string name="second_activity_title">Second activity</string>
+  <string name="login_name">Your name</string>
+  <string name="password">Password</string>
+  <string name="ok">OK</string>
+  <string name="login_error">This is not a name</string>
+  <string name="password_error">Password is too easy!</string>
+
+  <!-- ThirdActivity -->
+  <string name="third_activity_title">Third activity</string>
+  <string name="snack_bar_text">Hello, this is SnackBar</string>
+  <string name="shack_bar_btn_text">Click me</string>
+  <string name="on_snack_bar_clicked">You`ve just pressed SnackBar button</string>
+  <string name="on_menu_1_clicked">You`ve just pressed menu 1</string>
 
   <!-- Menu -->
   <string name="action_settings1">Пункт меню 1</string>
   <string name="action_settings2">Пункт меню 2</string>
   <string name="action_settings3">Пункт меню 3</string>
+
+  <!-- Discount card -->
+  <string name="product_name">Test product name</string>
+  <string name="discount">10%</string>
+  <string name="product_description">This product is perfect for advanced mountain tourists.</string>
 </resources>

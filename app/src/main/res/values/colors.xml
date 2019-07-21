@@ -4,9 +4,9 @@
   <color name="colorPrimaryDark">#4A148C</color>
   <color name="colorAccent">#AA00FF</color>
 
+  <color name="crimson">#DC143C</color>
   <color name="blue">#01579B</color>
   <color name="blue_light">#B3E5FC</color>
-  <color name="black">#000000</color>
-
   <color name="light_gray">#C0C0C0</color>
+  <color name="black">#000000</color>
 </resources>

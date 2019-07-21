@@ -2,7 +2,8 @@
 <resources>
   <dimen name="text_size_medium">18sp</dimen>
 
-  <dimen name="margin_large">72dp</dimen>
+  <dimen name="margin_x_large">72dp</dimen>
+  <dimen name="margin_large">36dp</dimen>
   <dimen name="margin_medium">24dp</dimen>
   <dimen name="margin_small">8dp</dimen>
 
