@@ -1,4 +1,4 @@
-# Lessons
+# GeekBrain Android development
 
 Lessons for GeekBrain courses for Android development beginer course.
 Each branch corresponds to the lesson according to it`s name.
