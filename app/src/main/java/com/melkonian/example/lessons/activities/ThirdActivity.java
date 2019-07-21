@@ -1,18 +1,18 @@
-package com.melkonian.example.lesson3.activities;
+package com.melkonian.example.lessons.activities;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
-import com.melkonian.example.lesson3.R;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+import com.melkonian.example.lessons.R;
 
 public class ThirdActivity extends AppCompatActivity {
 
@@ -61,9 +61,10 @@ public class ThirdActivity extends AppCompatActivity {
     //  return true;
     //}
 
-    switch(item.getItemId()) {
+    switch (item.getItemId()) {
       case R.id.action_settings1:
-        Toast.makeText(this, "Action settings clicked", Toast.LENGTH_SHORT).show();;
+        Toast.makeText(this, "Action settings clicked", Toast.LENGTH_SHORT).show();
+        ;
         return true;
       case R.id.action_settings2:
         SecondActivity.startActivity(this);

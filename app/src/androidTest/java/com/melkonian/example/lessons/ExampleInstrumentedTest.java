@@ -1,4 +1,4 @@
-package com.melkonian.example.lesson3;
+package com.melkonian.example.lessons;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

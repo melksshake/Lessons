@@ -1,9 +1,9 @@
-package com.melkonian.example.lesson3.activities;
+package com.melkonian.example.lessons.activities;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
-import com.melkonian.example.lesson3.R;
+import androidx.appcompat.app.AppCompatActivity;
+import com.melkonian.example.lessons.R;
 
 public class MainActivity extends AppCompatActivity {
 

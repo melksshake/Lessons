@@ -1,12 +1,10 @@
 <resources>
-  <string name="app_name">Lesson3</string>
-
-  <!-- MainActivity -->
+  <string name="app_name">Lessons</string>
 
   <!-- SecondActivity -->
   <string name="login_name">Ваше имя</string>
   <string name="password">Пароль</string>
-  <string name="ok">Ok</string>
+  <string name="ok">OK</string>
 
   <!-- Third activity -->
   <string name="third_activity">Third activity</string>

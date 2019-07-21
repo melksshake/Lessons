@@ -8,7 +8,7 @@
 
   <fragment
     android:id="@+id/fragment"
-    android:name="com.melkonian.example.lesson3.fragments.DiscountCardFragment"
+    android:name="com.melkonian.example.lessons.fragments.DiscountCardFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
@@ -18,7 +18,7 @@
 
   <fragment
     android:id="@+id/fragment2"
-    android:name="com.melkonian.example.lesson3.fragments.DiscountCardFragment"
+    android:name="com.melkonian.example.lessons.fragments.DiscountCardFragment"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginEnd="8dp"
