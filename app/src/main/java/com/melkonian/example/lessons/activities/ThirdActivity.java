@@ -31,7 +31,7 @@ public class ThirdActivity extends AppCompatActivity {
     fab.setOnClickListener(view -> Snackbar
         .make(view, getString(R.string.snack_bar_text), Snackbar.LENGTH_LONG)
         .setAction(getString(R.string.shack_bar_btn_text),
-            v -> Toast.makeText(ThirdActivity.this, getString(R.string.on_snack_bar_clicked), Toast.LENGTH_LONG).show())
+            view1 -> Toast.makeText(ThirdActivity.this, getString(R.string.on_snack_bar_clicked), Toast.LENGTH_LONG).show())
         .show());
   }
 
@@ -42,7 +42,7 @@ public class ThirdActivity extends AppCompatActivity {
   }
 
   @Override
-  public boolean onOptionsItemSelected(MenuItem item) {
+  public boolean onOptionsItemSelected(@NonNull MenuItem item) {
     switch (item.getItemId()) {
       case R.id.action_settings1:
         Toast.makeText(this, getString(R.string.on_menu_1_clicked), Toast.LENGTH_SHORT).show();

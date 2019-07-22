@@ -22,7 +22,10 @@
     </activity>
 
     <activity android:name="com.melkonian.example.lessons.activities.SecondActivity"/>
-    <activity android:name="com.melkonian.example.lessons.activities.ThirdActivity"/>
+    <activity
+      android:name="com.melkonian.example.lessons.activities.ThirdActivity"
+      android:theme="@style/Theme.AppCompat.NoActionBar"
+      />
 
   </application>
 </manifest>

@@ -15,6 +15,7 @@
     android:layout_marginEnd="@dimen/margin_small"
     android:layout_marginStart="@dimen/margin_small"
     android:layout_marginTop="@dimen/margin_small"
+    android:hint="@string/login_name"
     app:layout_constraintEnd_toEndOf="parent"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +25,7 @@
       android:id="@+id/tiet_login"
       android:layout_width="match_parent"
       android:layout_height="wrap_content"
-      android:hint="@string/login_name"
+
       android:inputType="textPersonName"
       />
   </com.google.android.material.textfield.TextInputLayout>
